@@ -16,7 +16,6 @@ class PlayerCrawler:
             'info', f'Fetching all games for encrypted_account_id {self.encrypted_account_id}.')
         history = self.api.get_complete_matchlist_for_encrypted_account_id(
             self.encrypted_account_id)
-        self.persistency.insert_player(self.encrypted_account_id)
         self.persistency.insert_match_history(
             self.encrypted_account_id, history)
         for match in history:

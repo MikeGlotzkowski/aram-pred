@@ -131,3 +131,4 @@ dmypy.json
 # project
 _private
 logs
+.vscode

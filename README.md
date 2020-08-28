@@ -26,11 +26,15 @@
 
 ~~write every match to db~~
 
+~~crawl to next 10 players~~
+
+
+
 ### utility
 
 ~~logging~~
 
 ~~retry if throttled~~
 
-
+~~player as json see why not in db~~
 

@@ -19,11 +19,6 @@ class Mongo:
         self.logger.log('info', 'Database connection established.')
 
     @Logger.Logger()
-    def insert_player(self, player_as_json):
-        self.insert_if_not_exists(player_as_json,
-                                  self.player_collection, 'currentAccountId')
-
-    @Logger.Logger()
     def insert_match_history(self, encrypted_account_id, match_history):
         self.insert_if_not_exists({'accountId': encrypted_account_id, 'matchHistory': match_history},
                                   self.raw_match_history, 'accountId')
@@ -35,7 +30,16 @@ class Mongo:
 
     @Logger.Logger()
     def get_match_details(self, game_id):
-        return self.raw_match_details.find_one({"_id": game_id})
+        return self.raw_match_details.find_one({'_id': game_id})
+
+    @Logger.Logger()
+    def get_uncrawled_game(self, queue_id):
+        return self.raw_match_details.find_one({'queueId': queue_id, 'used_for_crawling': {'$exists': False}})
+
+    @Logger.Logger()
+    def mark_match_as_crawled(self, game_id):
+        self.raw_match_details.update_one(
+            {'_id': game_id}, {'$set': {'used_for_crawling': 1}})
 
     @Logger.Logger()
     def insert_if_not_exists(self, obj, collection, _key):

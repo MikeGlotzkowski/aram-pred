@@ -20,17 +20,17 @@
 ~~--> 200, 299~~
 ~~stop @ end index = totalGames~~
 
-write match history to database
+~~write match history to database~~
 
-query every match from match history
+~~query every match from match history~~
 
-write every match to db
+~~write every match to db~~
 
 ### utility
 
 ~~logging~~
 
-retry if throttled
+~~retry if throttled~~
 
 
 

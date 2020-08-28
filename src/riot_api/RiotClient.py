@@ -6,13 +6,13 @@ import time
 
 class RiotClient:
 
-    def __init__(self):
+    def __init__(self, logger):
+        self.logger = logger
         self.api_key = os.environ.get("RIOT_API_KEY")
         self.base_url = "https://euw1.api.riotgames.com/lol/match/v4"
-        self.logger = Logger.Logger()
         self.waiting_intervall_if_throttled_in_seconds = 5
 
-    # @Logger.Logger()
+    @Logger.Logger()
     def get_matchlist_for_encrypted_account_id(self, encrypted_account_id, begin_index, end_index):
         try:
             url = f"{self.base_url}/matchlists/by-account/{encrypted_account_id}?queue=450&api_key={self.api_key}&beginIndex={begin_index}&endIndex={end_index}"

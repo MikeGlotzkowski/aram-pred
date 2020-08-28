@@ -21,6 +21,10 @@ class RiotClient:
             return r.json()
         except requests.exceptions.HTTPError as err:
             self.logger.log('error', str(err))
+            if r.status_code == 429:
+                retry_after = r.headers['Retry-After']
+                self.wait(int(retry_after))
+                return self.get_matchlist_for_encrypted_account_id(encrypted_account_id, begin_index, end_index)
 
     @Logger.Logger()
     def get_match_details_for_game_id(self, game_id):

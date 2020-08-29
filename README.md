@@ -1,5 +1,32 @@
 # aram-pred
 
+to run:
+
+place under ./_private/env.sh
+```bash
+export MONGO_USERNAME="XXX"
+export MONGO_PASSWORD="XXX"
+export RIOT_API_KEY="XXX"
+source venv/bin/activate
+```
+
+run mongo:
+
+```bash
+cd ./infrastructure
+./mongo.sh
+```
+
+
+run notebooks:
+
+````bash
+# linux
+jupyter notebook
+
+# wsl
+jupyter notebook --port=8889 --no-browser
+```
 ## todos:
 
 ### functions

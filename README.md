@@ -20,16 +20,17 @@ cd ./infrastructure
 
 run notebooks:
 
-````bash
+```bash
 # linux
 jupyter notebook
 
 # wsl
 jupyter notebook --port=8889 --no-browser
 ```
+
 ## todos:
 
-### functions
+### frs
 
 ~~get matchlist for a player~~
 
@@ -55,9 +56,18 @@ jupyter notebook --port=8889 --no-browser
 
 ~~crawl to next 10 players~~
 
+~~create cleansed dataset~~
+
+~~filer data set for aram only~~
+
+~~write dataset back to db~~
+
+~~sort summoner spells~~
+
+start ml~~~
 
 
-### utility
+### nfrs
 
 ~~logging~~
 

@@ -2,3 +2,7 @@ pymongo
 requests
 notebook
 pandas
+sklearn
+xgboost
+matplotlib
+graphviz
